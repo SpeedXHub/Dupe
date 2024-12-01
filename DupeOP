@@ -1,0 +1,83 @@
+-- Create the ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "DupeGui"
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create the main frame with gray background and symmetrical edges
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 400, 0, 100)
+mainFrame.Position = UDim2.new(0.5, -200, 0.5, -50)
+mainFrame.BackgroundColor3 = Color3.fromRGB(169, 169, 169)
+mainFrame.Parent = screenGui
+mainFrame.BorderSizePixel = 0
+
+-- Create the title label "JD SCRIPTS"
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(1, 0, 0, 30)
+titleLabel.Position = UDim2.new(0, 0, 0, 0)
+titleLabel.Text = "JD SCRIPTS"
+titleLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+titleLabel.TextSize = 18
+titleLabel.BackgroundTransparency = 1
+titleLabel.Parent = mainFrame
+
+-- Create the "Dupe" button (left side)
+local dupeButton = Instance.new("TextButton")
+dupeButton.Size = UDim2.new(0, 150, 0, 40)
+dupeButton.Position = UDim2.new(0, 10, 0.5, -20)
+dupeButton.Text = "Dupe"
+dupeButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+dupeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+dupeButton.TextSize = 20
+dupeButton.BorderSizePixel = 1
+dupeButton.Parent = mainFrame
+
+-- Create the "Off" button (right side)
+local offButton = Instance.new("TextButton")
+offButton.Size = UDim2.new(0, 150, 0, 40)
+offButton.Position = UDim2.new(1, -160, 0.5, -20)
+offButton.Text = "Off"
+offButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+offButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+offButton.TextSize = 20
+offButton.BorderSizePixel = 1
+offButton.Parent = mainFrame
+
+-- Toggle function for Dupe and Off buttons
+local isDupeOn = false
+
+dupeButton.MouseButton1Click:Connect(function()
+    if not isDupeOn then
+        isDupeOn = true
+        dupeButton.Text = "Dupe ON"
+        offButton.Text = "Off"
+        -- Add your Dupe functionality here
+        print("Dupe is ON!")
+    end
+end)
+
+offButton.MouseButton1Click:Connect(function()
+    if isDupeOn then
+        isDupeOn = false
+        offButton.Text = "Off ON"
+        dupeButton.Text = "Dupe"
+        -- Add your Off functionality here
+        print("Dupe is OFF!")
+    end
+end)
+
+-- Create the "Toggle" button outside the main GUI (left mid position)
+local toggleButton = Instance.new("TextButton")
+toggleButton.Size = UDim2.new(0, 100, 0, 40)
+toggleButton.Position = UDim2.new(0, 10, 0.5, -20)  -- Adjust this to left middle
+toggleButton.Text = "Toggle"
+toggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+toggleButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+toggleButton.TextSize = 20
+toggleButton.BorderSizePixel = 1
+toggleButton.Parent = screenGui
+
+-- Toggle visibility of the main GUI
+toggleButton.MouseButton1Click:Connect(function()
+    mainFrame.Visible = not mainFrame.Visible
+end)
