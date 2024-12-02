@@ -7,16 +7,23 @@ screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 local mainFrame = Instance.new("Frame")
 mainFrame.Size = UDim2.new(0, 400, 0, 100)
 mainFrame.Position = UDim2.new(0.5, -200, 0.5, -50)
-mainFrame.BackgroundColor3 = Color3.fromRGB(169, 169, 169)
+mainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 112) -- Neon Dark Blue
 mainFrame.Parent = screenGui
 mainFrame.BorderSizePixel = 0
+
+-- Add a neon stroke to the main frame
+local mainFrameStroke = Instance.new("UIStroke")
+mainFrameStroke.Thickness = 4
+mainFrameStroke.Color = Color3.fromRGB(0, 255, 255) -- Neon Cyan
+mainFrameStroke.Parent = mainFrame
 
 -- Create the title label "JD SCRIPTS"
 local titleLabel = Instance.new("TextLabel")
 titleLabel.Size = UDim2.new(1, 0, 0, 30)
 titleLabel.Position = UDim2.new(0, 0, 0, 0)
 titleLabel.Text = "JD SCRIPTS"
-titleLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- White
+titleLabel.TextStrokeTransparency = 0.5
 titleLabel.TextSize = 18
 titleLabel.BackgroundTransparency = 1
 titleLabel.Parent = mainFrame
@@ -27,10 +34,16 @@ dupeButton.Size = UDim2.new(0, 150, 0, 40)
 dupeButton.Position = UDim2.new(0, 10, 0.5, -20)
 dupeButton.Text = "Dupe"
 dupeButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-dupeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+dupeButton.BackgroundColor3 = Color3.fromRGB(173, 255, 47) -- Neon Green
 dupeButton.TextSize = 20
-dupeButton.BorderSizePixel = 1
+dupeButton.BorderSizePixel = 0
 dupeButton.Parent = mainFrame
+
+-- Add a neon stroke to the Dupe button
+local dupeButtonStroke = Instance.new("UIStroke")
+dupeButtonStroke.Thickness = 2
+dupeButtonStroke.Color = Color3.fromRGB(0, 255, 255) -- Neon Cyan
+dupeButtonStroke.Parent = dupeButton
 
 -- Create the "Off" button (right side)
 local offButton = Instance.new("TextButton")
@@ -38,10 +51,16 @@ offButton.Size = UDim2.new(0, 150, 0, 40)
 offButton.Position = UDim2.new(1, -160, 0.5, -20)
 offButton.Text = "Off"
 offButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-offButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+offButton.BackgroundColor3 = Color3.fromRGB(255, 69, 0) -- Neon Red-Orange
 offButton.TextSize = 20
-offButton.BorderSizePixel = 1
+offButton.BorderSizePixel = 0
 offButton.Parent = mainFrame
+
+-- Add a neon stroke to the Off button
+local offButtonStroke = Instance.new("UIStroke")
+offButtonStroke.Thickness = 2
+offButtonStroke.Color = Color3.fromRGB(255, 20, 147) -- Neon Pink
+offButtonStroke.Parent = offButton
 
 -- Toggle function for Dupe and Off buttons
 local isDupeOn = false
@@ -69,13 +88,19 @@ end)
 -- Create the "Toggle" button outside the main GUI (left mid position)
 local toggleButton = Instance.new("TextButton")
 toggleButton.Size = UDim2.new(0, 100, 0, 40)
-toggleButton.Position = UDim2.new(0, 10, 0.5, -20)  -- Adjust this to left middle
+toggleButton.Position = UDim2.new(0, 10, 0.5, -20) -- Adjust this to left middle
 toggleButton.Text = "Toggle"
 toggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-toggleButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+toggleButton.BackgroundColor3 = Color3.fromRGB(135, 206, 250) -- Neon Sky Blue
 toggleButton.TextSize = 20
-toggleButton.BorderSizePixel = 1
+toggleButton.BorderSizePixel = 0
 toggleButton.Parent = screenGui
+
+-- Add a neon stroke to the Toggle button
+local toggleButtonStroke = Instance.new("UIStroke")
+toggleButtonStroke.Thickness = 2
+toggleButtonStroke.Color = Color3.fromRGB(0, 255, 255) -- Neon Cyan
+toggleButtonStroke.Parent = toggleButton
 
 -- Toggle visibility of the main GUI
 toggleButton.MouseButton1Click:Connect(function()
